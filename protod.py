@@ -213,7 +213,7 @@ class FileDescriptorDisassembler:
 
 
     def render(self, filename=None):
-        print '[+] Processing %s' % self.desc.name
+        print('[+] Processing %s' % self.desc.name)
         buffer = ''
         buffer += 'package %s;\n\n' % self.desc.package
         
@@ -276,7 +276,7 @@ class ProtobufExtractor:
                                         fds  = FileDescriptorProto()
                                         fds.ParseFromString(stream[r-j-1:r-j-1+k])
                                         protos.append(stream[r-j-1:r-j-1+k])
-                                        print '[i] Found protofile %s (%d bytes)' % (stream[r-j+1:r+6], k)
+                                        print('[i] Found protofile %s (%d bytes)' % (stream[r-j+1:r+6], k))
                                         break
                                     except DecodeError:
                                         pass
@@ -306,15 +306,15 @@ class ProtobufExtractor:
                     pass
             
         except IOError:
-            print '[!] Unable to read %s' % sys.argv[1]        
+            print('[!] Unable to read %s' % sys.argv[1])
 
 if __name__ == '__main__':
     if len(sys.argv)>=2:
-        print "[i] Extracting from %s ..." % sys.argv[1]
+        print("[i] Extracting from %s ..." % sys.argv[1])
         extractor = ProtobufExtractor(sys.argv[1])
         extractor.extract()
-        print "[i] Done"
+        print("[i] Done")
     else:
-        print "[ Protod (Protobuf metadata extractor) (c) 2012 Sysdream  ]"
-        print ''
-        print '[i] Usage: %s [executable]' % sys.argv[0]
+        print("[ Protod (Protobuf metadata extractor) (c) 2012 Sysdream  ]")
+        print('')
+        print('[i] Usage: %s [executable]' % sys.argv[0])
